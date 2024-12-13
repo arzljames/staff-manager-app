@@ -4,6 +4,7 @@ import {
   getInstanceRoles,
   getInstanceUsers,
   getPendingUserInvites,
+  removeUser,
   sendUserInvites,
 } from "@/lib/api/services";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -57,6 +58,20 @@ export const useCancelInvite = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: ["pendingUserInvites"],
+      });
+    },
+  });
+};
+
+export const useRemoveUser = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (item: { userZUID: string; roleZUID: string; email: string }) =>
+      removeUser(item),
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["instanceUsers"],
       });
     },
   });

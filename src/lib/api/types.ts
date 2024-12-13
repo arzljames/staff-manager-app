@@ -88,3 +88,22 @@ export type PendingUserInvitesResponse = {
     totalResults: number;
   };
 };
+
+export type GetUserByEmailResponse = {
+  data: {
+    data: {
+      first_name: string;
+      middle_name: string;
+      last_name: string;
+      email: string;
+    };
+    meta: {
+      ZUID: string;
+      masterZuid: string;
+      contentModelZuid: string;
+    };
+  }[];
+  _meta: {
+    totalItems: number;
+  };
+};
