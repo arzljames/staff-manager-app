@@ -8,12 +8,16 @@
     "skipLibCheck": true,
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
+
+    /* Interop for CommonJS */
+    "esModuleInterop": true, // Enables importing CommonJS modules using `import` syntax
+    "allowSyntheticDefaultImports": true, // Allows default imports from CommonJS modules
 
     /* Linting */
     "strict": true,
@@ -24,9 +28,7 @@
 
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src"]
